@@ -1,7 +1,9 @@
 import { Http, Headers, Response } from "@angular/http";
 import { FotoComponent } from "../foto/foto.component";
+import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
+@Injectable()
 export class FotoService
 {
     http: Http;
