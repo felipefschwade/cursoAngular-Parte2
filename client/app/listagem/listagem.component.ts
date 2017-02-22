@@ -18,4 +18,10 @@ export class ListagemComponent
             .subscribe(fotos => this.fotos = fotos, 
             erro => console.log(erro));
     }
+
+    remove(foto)
+    {
+        console.log(foto);
+    }
+
 }
