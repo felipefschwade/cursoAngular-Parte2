@@ -12,6 +12,10 @@ export const Routing = RouterModule.forRoot([
         component : CadastroComponent
     },
     {
+        path : "cadastro/:id",
+        component : CadastroComponent
+    },
+    {
         path : "**",
         redirectTo : ""
     }
