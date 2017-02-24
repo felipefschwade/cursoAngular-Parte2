@@ -37,4 +37,11 @@ export class FotoService
         return this.http.delete(this.url + "/" + foto._id);
     }
 
+    buscaPorId(id): Observable<FotoComponent>
+    {
+        return this.http
+                .get(this.url + "/" + id)
+                .map(res => res.json());
+    }
+
 }
