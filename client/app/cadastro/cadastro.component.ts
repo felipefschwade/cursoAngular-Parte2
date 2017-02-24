@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { FotoComponent } from "../foto/foto.component";
 import { FotoService } from "../foto/foto.service";
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     moduleId : module.id,
@@ -11,13 +11,15 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class CadastroComponent { 
 
+    router: Router;
     route: ActivatedRoute;
     foto: FotoComponent = new FotoComponent();
     fotoForm: FormGroup;
     service: FotoService;
 
-    constructor(service: FotoService, formBuilder: FormBuilder, route: ActivatedRoute)
+    constructor(service: FotoService, formBuilder: FormBuilder, route: ActivatedRoute, router: Router)
     {
+        this.router = router;
         this.route = route;
         this.service = service;
         this.route.params.subscribe(params => {
@@ -46,6 +48,7 @@ export class CadastroComponent {
                 console.log("Imagem Salva Com Sucesso");
                 this.foto = new FotoComponent(); },
             error => console.log(error));
+        this.router.navigate([""]);
     }
 
 }
