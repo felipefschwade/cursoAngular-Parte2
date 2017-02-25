@@ -47,9 +47,13 @@ export class CadastroComponent {
         this.service.cadastra(this.foto)
             .subscribe((res) => {
                 this.mensagem = res.mensagem;
-                if (!res.inclusao) this.router.navigate([""]);
-                this.foto = new FotoComponent(); },
-            error => console.log(error));
+                this.foto = new FotoComponent()
+                if(!res.inclusao) this.router.navigate([""]);
+            },
+            error => { 
+                console.log(error);
+                this.mensagem = "Não foi possível adicionar a foto.";
+            });
     }
 
 }
