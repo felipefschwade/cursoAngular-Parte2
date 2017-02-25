@@ -17,19 +17,21 @@ export class FotoService
         this.headers = new Headers({'Content-Type' : 'application/json'});
     }
 
-    cadastra(foto: FotoComponent): Observable<Response>
+    cadastra(foto: FotoComponent): Observable<Object>
     {
         if (foto._id)
         {
             return this.http
                 .put(this.url + "/" + foto._id,
                      JSON.stringify(foto),
-                     {headers : this.headers});
+                     {headers : this.headers})
+                .map(() => ({mensagem : "Foto Alterada com Sucesso!", inclusao : false}));
         } else {
             return this.http
                 .post(this.url, 
                     JSON.stringify(foto), 
                     {headers : this.headers})
+                .map(() => ({mensagem : "Foto Alterada com Sucesso!", inclusao : false}));
         }
     }
 
