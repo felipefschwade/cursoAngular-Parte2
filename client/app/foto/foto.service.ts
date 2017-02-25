@@ -17,7 +17,7 @@ export class FotoService
         this.headers = new Headers({'Content-Type' : 'application/json'});
     }
 
-    cadastra(foto: FotoComponent): Observable<Object>
+    cadastra(foto: FotoComponent): Observable<MensagemService>
     {
         if (foto._id)
         {
@@ -31,7 +31,7 @@ export class FotoService
                 .post(this.url, 
                     JSON.stringify(foto), 
                     {headers : this.headers})
-                .map(() => ({mensagem : "Foto Alterada com Sucesso!", inclusao : false}));
+                .map(() => ({mensagem : "Foto Adicionada com Sucesso!", inclusao : true}));
         }
     }
 
@@ -54,4 +54,16 @@ export class FotoService
                 .map(res => res.json());
     }
 
+}
+
+export class MensagemService
+{
+    readonly mensagem: string;
+    readonly inclusao: boolean;
+
+    constructor(mensagem: string, inclusao: boolean)
+    {
+        this.mensagem = mensagem;
+        this.inclusao = inclusao;
+    }
 }
