@@ -1,4 +1,5 @@
 <div class="container">
+    <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
     <form [formGroup]="fotoForm" class="row" (submit)="cadastrar($event)" class="row" >
         <div class="col-md-6">
             <div class="form-group">
