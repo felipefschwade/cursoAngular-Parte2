@@ -58,10 +58,7 @@ export class FotoService
 
 export class MensagemService
 {
-    readonly mensagem: string;
-    readonly inclusao: boolean;
-
-    constructor(mensagem: string, inclusao: boolean)
+    constructor(readonly mensagem: string, readonly inclusao: boolean)
     {
         this.mensagem = mensagem;
         this.inclusao = inclusao;
