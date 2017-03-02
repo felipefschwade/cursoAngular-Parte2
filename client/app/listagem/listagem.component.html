@@ -22,6 +22,7 @@
             </a>
             <!-- Utilizando um eventBinding de um evento personalizado -->
             <botao nome="Remover" estilo="btn-danger btn-block" (acao)="modal.show()"></botao>
+            <!-- Utilizando um eventBinding de um evento personalizado -->
             <modal #modal frase="Tem certeza que deseja remover esta foto?" (confirma)="remove(foto, painel)"></modal>
             <!-- <button class="btn btn-danger btn-block" (click)="remove(foto)" >Remover</button> -->
         </painel>
